@@ -6,17 +6,16 @@ public class BFSTraversal {
         Set<Integer> visited = new HashSet<>();
         HashMap<Integer, List<Integer>> adjacentList = g.getAdjacentList();
         queue.add(startVertex);
+        visited.add(startVertex);
         while(!queue.isEmpty()){
             int currentVertex = queue.poll();
-            if(!visited.contains(currentVertex)){
-                visited.add(currentVertex);
                 System.out.print(currentVertex + " ");
-                for(Integer neighbor: adjacentList.getOrDefault(currentVertex,new LinkedList<>())){
-                    if(!visited.contains(neighbor)){
+                for(Integer neighbor: adjacentList.getOrDefault(currentVertex,new LinkedList<>())) {
+                    if (!visited.contains(neighbor)) {
                         queue.add(neighbor);
+                        visited.add(neighbor);
                     }
                 }
-            }
         }
     }
 }

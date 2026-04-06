@@ -66,5 +66,8 @@ public class Graphs {
 
         DFSTraversal d = new DFSTraversal();
         d.iterativeTraversal(1,g);
+
+        BFSTraversal b = new BFSTraversal();
+        b.iterativeTraversal(1,g);
     }
 }

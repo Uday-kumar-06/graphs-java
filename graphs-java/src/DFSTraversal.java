@@ -19,5 +19,6 @@ public class DFSTraversal {
             }
 
         }
+        System.out.println();
     }
 }
