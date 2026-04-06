@@ -63,5 +63,8 @@ public class Graphs {
         Graphs g = new Graphs();
         g.start();
         g.printGraph();
+
+        DFSTraversal d = new DFSTraversal();
+        d.iterativeTraversal(1,g);
     }
 }
