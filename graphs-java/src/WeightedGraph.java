@@ -11,6 +11,9 @@ public class WeightedGraph {
             adjacentList.add(new ArrayList<>());
         }
     }
+    public int getVertices() {
+        return vertices;
+    }
 
     public void addUnDirectedEdge(int source, int destination, int weight){
         GraphEdge edge1 = new GraphEdge(source, destination, weight);
@@ -51,8 +54,8 @@ public class WeightedGraph {
         graph.addUnDirectedEdge(6, 7, 2);
 
         // Add some directed edges
-        graph.addDirectedEdge(2, 4, 8);
-        graph.addDirectedEdge(5, 3, 5);
+//        graph.addDirectedEdge(2, 4, 8);
+//        graph.addDirectedEdge(5, 3, 5);
 
         // Get adjacency list
         List<List<GraphEdge>> adj = graph.getAdjacentList();
@@ -68,5 +71,24 @@ public class WeightedGraph {
             }
             System.out.println();
         }
+
+        MinimumSpanningTree MST = new MinimumSpanningTree();
+
+        List<GraphEdge> mstGraph = MST.primsAlgorithm(graph);
+
+        int totalWeight = 0;
+
+        System.out.println("MST Edges:");
+
+        for (GraphEdge edge : mstGraph) {
+            System.out.println(
+                    edge.getSource() + " -> " +
+                            edge.getDestination() +
+                            " (w=" + edge.getWeight() + ")"
+            );
+            totalWeight += edge.getWeight();
+        }
+
+        System.out.println("Total MST Weight: " + totalWeight);
     }
 }
